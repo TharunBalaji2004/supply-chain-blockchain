@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Web3 from "web3";
-import SupplyChainABI from "./artifacts/SupplyChain.json";
+import SupplyChainABI from "../../artifacts/SupplyChain.json";
+import { preLoader } from "../../Assets/Img";
 
 function Track() {
   const navigate = useNavigate();
@@ -94,8 +95,8 @@ function Track() {
   };
   if (loader) {
     return (
-      <div>
-        <h1 className="wait">Loading...</h1>
+      <div className="h-screen flex flex-col justify-center items-center">
+        <img src={preLoader} />
       </div>
     );
   }
