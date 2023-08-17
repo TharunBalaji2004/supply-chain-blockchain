@@ -1,3 +1,4 @@
+import "./AddMed.css"
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Web3 from "web3";
@@ -90,66 +91,81 @@ function AddMed() {
     }
   };
   return (
-    <div>
-      <span>
-        <b>Current Account Address:</b> {currentaccount}
-      </span>
-      <span
-        onClick={redirect_to_home}
-        className="btn btn-outline-danger btn-sm"
-      >
-        {" "}
-        HOME
-      </span>
+    <div className="py-10 mt-[11vh]">
+      <div className="container mx-auto">
+        <div className="w-[90%] mx-auto">
+          <span >
+            <b>Current Account Address:</b> {currentaccount}
+          </span>
+        </div>
+      </div>
+
+
       <br />
-      <h5>Add Medicine Order:</h5>
-      <form onSubmit={handlerSubmitMED}>
-        <input
-          className="form-control-sm"
-          type="text"
-          onChange={handlerChangeNameMED}
-          placeholder="Medicine Name"
-          required
-        />
-        <input
-          className="form-control-sm"
-          type="text"
-          onChange={handlerChangeDesMED}
-          placeholder="Medicine Description"
-          required
-        />
-        <button
-          className="btn btn-outline-success btn-sm"
-          onSubmit={handlerSubmitMED}
-        >
-          Order
-        </button>
-      </form>
+      <div className="2xl:container mx-auto py-10 space-y-4">
+
+        <div className="w-[90%] mx-auto grid grid-cols-1">
+          <h5>Add Medicine Order:</h5>
+        </div>
+        <div className="mx-auto w-[90%] grid grid-cols-1 md:grid-cols-2">
+          <form onSubmit={handlerSubmitMED}>
+            <div className="flex flex-col justify-center items-start space-y-4">
+              <input
+                className="form-control-sm border border-red-500"
+                type="text"
+                onChange={handlerChangeNameMED}
+                placeholder="Medicine Name"
+                required
+              />
+              <input
+                className="form-control-sm border border-red-500"
+                type="text"
+                onChange={handlerChangeDesMED}
+                placeholder="Medicine Description"
+                required
+              />
+              <button
+                className="btn btn-outline-success btn-sm"
+                onSubmit={handlerSubmitMED}
+              >
+                Order
+              </button>
+            </div>
+
+          </form>
+          <div>
+            <h5>Ordered Medicines:</h5>
+            <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Current Stage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.keys(MED).map(function (key) {
+                  return (
+                    <tr key={key}>
+                      <td>{MED[key].id}</td>
+                      <td>{MED[key].name}</td>
+                      <td>{MED[key].description}</td>
+                      <td>{MedStage[key]}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
       <br />
-      <h5>Ordered Medicines:</h5>
-      <table className="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Current Stage</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(MED).map(function (key) {
-            return (
-              <tr key={key}>
-                <td>{MED[key].id}</td>
-                <td>{MED[key].name}</td>
-                <td>{MED[key].description}</td>
-                <td>{MedStage[key]}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+
     </div>
+
   );
 }
 

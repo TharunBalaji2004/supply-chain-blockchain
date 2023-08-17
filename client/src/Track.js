@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json";
+import { preLoader } from "./Assets/Img";
 
 function Track() {
   const navigate = useNavigate();
@@ -94,8 +95,8 @@ function Track() {
   };
   if (loader) {
     return (
-      <div>
-        <h1 className="wait">Loading...</h1>
+      <div className="h-screen flex flex-col justify-center items-center">
+        <img src={preLoader} alt="pre-loader" />
       </div>
     );
   }
@@ -212,15 +213,6 @@ function Track() {
         >
           Track Another Item
         </button>
-        <span
-          onClick={() => {
-            navigate("/");
-          }}
-          className="btn btn-outline-danger btn-sm"
-        >
-          {" "}
-          HOME
-        </span>
       </div>
     );
   }
@@ -518,15 +510,7 @@ function Track() {
         >
           Track Another Item
         </button>
-        <span
-          onClick={() => {
-            navigate("/");
-          }}
-          className="btn btn-outline-danger btn-sm"
-        >
-          {" "}
-          HOME
-        </span>
+
       </div>
     );
   }
@@ -636,15 +620,7 @@ function Track() {
           >
             Track Another Item
           </button>
-          <span
-            onClick={() => {
-              navigate("/");
-            }}
-            className="btn btn-outline-danger btn-sm"
-          >
-            {" "}
-            HOME
-          </span>
+
         </article>
         {/* <section className="row">
                     
@@ -684,7 +660,7 @@ function Track() {
   };
 
   return (
-    <div>
+    <div className="mt-[11vh]">
       <span>
         <b>Current Account Address:</b> {currentaccount}
       </span>
@@ -695,6 +671,24 @@ function Track() {
         {" "}
         HOME
       </span>
+
+      <h5 className="pt-5">Enter Medicine ID to Track it</h5>
+
+      <form onSubmit={handlerSubmit} className="py-10">
+        <input
+          className="form-control-sm"
+          type="text"
+          onChange={handlerChangeID}
+          placeholder="Enter Medicine ID"
+          required
+        />
+        <button
+          className="btn btn-outline-success btn-sm"
+          onSubmit={handlerSubmit}
+        >
+          Track
+        </button>
+      </form>
       <table className="table table-sm table-bordered">
         <thead>
           <tr>
@@ -717,23 +711,6 @@ function Track() {
           })}
         </tbody>
       </table>
-      <h5>Enter Medicine ID to Track it</h5>
-
-      <form onSubmit={handlerSubmit}>
-        <input
-          className="form-control-sm"
-          type="text"
-          onChange={handlerChangeID}
-          placeholder="Enter Medicine ID"
-          required
-        />
-        <button
-          className="btn btn-outline-success btn-sm"
-          onSubmit={handlerSubmit}
-        >
-          Track
-        </button>
-      </form>
     </div>
   );
 }

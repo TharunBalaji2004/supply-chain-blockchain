@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "./Components/Header/Header";
 
 function Home() {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ function Home() {
     navigate("/track");
   };
   return (
+    <>
+   <Header/>
     <div className="container">
       <div className="header">
         <h3>Pharmaceutical Supply Chain Flow :- </h3>
@@ -71,6 +74,7 @@ function Home() {
         </button>
       </div>
     </div>
+    </>
   );
 }
 

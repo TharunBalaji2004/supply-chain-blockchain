@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json";
 import { useNavigate } from "react-router-dom";
+import { preLoader } from "./Assets/Img";
 
 function AssignRoles() {
   const navigate = useNavigate();
@@ -88,8 +89,8 @@ function AssignRoles() {
   };
   if (loader) {
     return (
-      <div>
-        <h1 className="wait">Loading...</h1>
+      <div className="h-screen flex flex-col justify-center items-center">
+        <img src={preLoader} alt="pre-loader" />
       </div>
     );
   }
@@ -186,7 +187,7 @@ function AssignRoles() {
   };
 
   return (
-    <div>
+    <div className="mt-[10vh]">
       <span>
         <b>Current Account Address:</b> {currentaccount}
       </span>

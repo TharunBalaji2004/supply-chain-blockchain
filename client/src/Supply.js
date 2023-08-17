@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json";
+import { preLoader } from "./Assets/Img";
 
 function Supply() {
   const navigate = useNavigate();
@@ -61,7 +62,12 @@ function Supply() {
   if (loader) {
     return (
       <div>
-        <h1 className="wait">Loading...</h1>
+
+      
+      <div className="h-screen flex flex-col justify-center items-center mt-[11vh]">
+        <img src={preLoader} alt="pre-loader" />
+      </div>
+
       </div>
     );
   }
@@ -137,7 +143,7 @@ function Supply() {
     }
   };
   return (
-    <div>
+    <div className="mt-[11vh]">
       <span>
         <b>Current Account Address:</b> {currentaccount}
       </span>
