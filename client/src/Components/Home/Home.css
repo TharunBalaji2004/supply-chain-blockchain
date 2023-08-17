@@ -113,4 +113,5 @@
 
 .plan .button:hover, .plan .button:focus {
   background-color: #4133B7;
+  cursor: pointer;
 }
