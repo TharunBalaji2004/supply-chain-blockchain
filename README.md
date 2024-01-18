@@ -2,7 +2,7 @@
 Innovative Transparent Supply Chain system developed with Ganache Blockchain network based on Ethereum using Truffle Suite, Solidity, Web3 JS integrated with ReactJS Website Dashboard 🚛📦
 
 ## About the project
-This project is under development for intra college Hackthon **BUILD-A-THON** 1.0 by **TEAM HACKOS** based on Industry 5.0 domain. The team members:
+This project is being developed for intra college Hackthon **BUILD-A-THON** 1.0 by **TEAM HACKOS** based on Industry 5.0 domain. The team members:
 
 | Name | Role | GitHub Profile |
 | :----: | :----: | :----: |
